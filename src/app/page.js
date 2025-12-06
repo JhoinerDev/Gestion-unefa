@@ -2,8 +2,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
-  return (
+  return  null;
     <div className={styles.page}>
+      
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -14,6 +15,9 @@ export default function Home() {
           priority
         />
         <div className={styles.intro}>
+          <div className="p-10 text-3xl text-blue-600 font-bold">
+            Tailwind FUNCIONANDO en Next.js 🎉
+            </div>
           <h1>To get started, edit the page.js file.</h1>
           <p>
             Looking for a starting point or more instructions? Head over to{" "}
@@ -62,5 +66,5 @@ export default function Home() {
         </div>
       </main>
     </div>
-  );
+  
 }
