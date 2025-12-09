@@ -1,6 +1,24 @@
 "use client";
 
+import { useRouter } from 'next/navigation'; // 💡 Paso 1: Importar useRouter
+
 export default function ProfileModal({ onClose }) {
+  const router = useRouter(); // 💡 Paso 2: Inicializar el router
+
+  // Función que maneja el cierre de sesión y la redirección
+  const handleLogout = () => {
+    // 1. Limpieza de Sesión (Importante para la seguridad)
+    // Aquí es donde deberías poner tu lógica para limpiar cookies, tokens, o localStorage.
+    console.log("Limpiando sesión y redirigiendo...");
+
+    // 2. Cerramos el modal
+    onClose(); 
+
+    // 3. Redireccionamos a la página de login
+    router.push('/login'); 
+  };
+
+
   return (
     <div className="fixed inset-0 bg-black/30 flex justify-center items-center z-50">
       {/* Contenedor */}
@@ -19,10 +37,7 @@ export default function ProfileModal({ onClose }) {
           </button>
 
           <button
-            onClick={() => {
-              // AQUI VA EL LOGOUT LUEGO
-              alert("Sesión cerrada");
-            }}
+            onClick={handleLogout} // 🚨 Usamos la función handleLogout aquí
             className="w-full text-left px-3 py-2 rounded-lg bg-red-100 hover:bg-red-200 text-red-700 transition"
           >
             Cerrar Sesión

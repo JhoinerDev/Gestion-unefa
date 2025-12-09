@@ -1,6 +1,20 @@
 "use client";
 
-import DisciplinaCard from "@/components/tarjetas/DisciplinaCard";
+// Función para mapear la disciplina a un estilo visual (se coloca fuera del componente principal)
+const getDisciplineStyle = (nombre) => {
+    switch (nombre) {
+        case "Fútbol Sala":
+            return { icon: '⚽', gradient: "from-blue-700 to-indigo-600" };
+        case "Baloncesto":
+            return { icon: '🏀', gradient: "from-yellow-600 to-orange-500" };
+        case "Voleibol":
+            return { icon: '🏐', gradient: "from-red-600 to-pink-500" };
+        
+        default:
+            return { icon: '📍', gradient: "from-gray-700 to-gray-600" };
+    }
+};
+
 
 export default function DashboardPage() {
 
@@ -8,51 +22,127 @@ export default function DashboardPage() {
     { nombre: "Fútbol Sala", atletas: 25, color: "bg-blue-600" },
     { nombre: "Baloncesto", atletas: 18, color: "bg-yellow-500" },
     { nombre: "Voleibol", atletas: 22, color: "bg-red-500" },
-    { nombre: "Karate Do", atletas: 10, color: "bg-green-600" },
-    { nombre: "Atletismo", atletas: 15, color: "bg-purple-600" },
-    { nombre: "Kickboxing", atletas: 8, color: "bg-orange-600" }
   ];
 
+  // 1. Contenedor principal
   return (
-    <div className="w-full h-full flex flex-col gap-6">
+    <div className= " flex-col gap-2 p-4 md:p-4">
+      <h1 className="text-xl font-bold text-gray-800  ">Accesos Rápidos</h1>
+      <br />
 
-      {/* FILA SUPERIOR – Tarjetas estatísticas */}
-      <div className="grid grid-cols-4 gap-4">
-        <div className="p-4 bg-white border rounded-lg shadow">
-          <p className="text-sm text-gray-600">Total Atletas</p>
-          <h2 className="text-2xl font-bold text-blue-700">148</h2>
+      {/* FILA SUPERIOR – Tarjetas estatísticas (Rediseño de la respuesta anterior) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+        
+        {/* TARJETA 1: Total Atletas (Gradiente Azul/Índigo) */}
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden 
+                      bg-gradient-to-br from-indigo-600 to-blue-500 text-white bg-gray-800 transition-transform duration-700 hover:scale-[1.05]">
+            
+            {/* Ícono de fondo sutil */}
+            <div className="absolute top-0 right-4 opacity-40 text-[5rem] translate-x-4 translate-y-4">
+               🏃
+            </div>
+
+            <p className="text-base font-semibold opacity-80">Total Atletas</p>
+            <h2 className="text-5xl font-extrabold mt-1">148</h2>
+            <p className="text-sm opacity-90 mt-2">Detalles del rendimiento</p>
         </div>
 
-        <div className="p-4 bg-white border rounded-lg shadow">
-          <p className="text-sm text-gray-600">Profesores</p>
-          <h2 className="text-2xl font-bold text-blue-700">9</h2>
+        {/* TARJETA 2: Profesores (Fondo Blanco/Claro) */}
+        <div className="relative p-6 rounded-2xl shadow-xl bg-white border border-gray-100 bg-gray-800 transition-transform duration-700 hover:scale-[1.05]">
+            
+            {/* Ícono de fondo sutil */}
+            <div className="absolute top-0 right-4 opacity-40 text-[5rem] translate-x-4 translate-y-4">
+                🧑‍🏫
+            </div>
+
+            <p className="text-base text-gray-500 font-semibold">Profesores</p>
+            <h2 className="text-5xl font-extrabold text-gray-800 mt-1">9</h2>
+            <p className="text-sm text-gray-500 mt-2">Detalle de asignación</p>
         </div>
 
-        <div className="p-4 bg-white border rounded-lg shadow">
-          <p className="text-sm text-gray-600">Disciplinas</p>
-          <h2 className="text-2xl font-bold text-blue-700">12</h2>
+        {/* TARJETA 3: Disciplinas (Gradiente Rojo/Rosa) */}
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05]
+                       bg-gradient-to-br from-red-500 to-pink-500 text-white">
+
+            {/* Ícono de fondo sutil */}
+            <div className="absolute top-0 right-0 opacity-50 text-[5rem] translate-x-4 translate-y-4">
+                🏅
+            </div>
+            
+            <p className="text-base font-semibold opacity-80">Disciplinas</p>
+            <h2 className="text-5xl font-extrabold mt-1">12</h2>
+            <p className="text-sm opacity-90 mt-2">Clasificaciones activas</p>
         </div>
 
-        <div className="p-4 bg-white border rounded-lg shadow">
-          <p className="text-sm text-gray-600">Eventos Activos</p>
-          <h2 className="text-2xl font-bold text-blue-700">4</h2>
+        {/* TARJETA 4: Eventos Activos (Gradiente Amarillo/Naranja) */}
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05]
+                       bg-gradient-to-br from-yellow-500 to-orange-500 text-white">
+            
+            {/* Ícono de fondo sutil */}
+            <div className="absolute top-0 right-5 opacity-40 text-[5rem] translate-x-4 translate-y-4">
+                📅
+            </div>
+
+            <p className="text-base font-semibold opacity-80">Eventos Activos</p>
+            <h2 className="text-5xl font-extrabold mt-1">4</h2>
+            <p className="text-sm opacity-90 mt-2">Eventos en curso</p>
         </div>
       </div>
 
-      {/* TARJETAS DE DISCIPLINAS */}
-      <h2 className="text-lg font-bold text-gray-700">Accesos Rápidos</h2>
+      {/* TÍTULO DE DISCIPLINAS */}
+      <h1 className="text-xl font-bold text-gray-800 mt-10 mb-2">Mas Frecuentes</h1>
+      <br />
 
-      <div className="grid grid-cols-3 gap-4">
-        {disciplinas.map((d, i) => (
-          <DisciplinaCard
-            key={i}
-            nombre={d.nombre}
-            atletas={d.atletas}
-            color={d.color}
-          />
-        ))}
+      {/* TARJETAS DE DISCIPLINAS (Diseño implementado directamente en el map) */}
+      <div className="grid  lg:grid-cols-5 gap-4">
+        {disciplinas.map((d, i) => {
+          // Lógica de la tarjeta de disciplina
+          const { icon, gradient } = getDisciplineStyle(d.nombre);
+          const maxAtletas = 30; // Máximo asumido para la barra
+          const porcentaje = (d.atletas / maxAtletas) * 100;
+
+          return (
+            <div 
+              key={i}
+              className="relative rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05]"
+            >
+              
+              {/* Área Visual Superior con Gradiente */}
+              <div 
+                className={`p-6 h-32 flex items-center justify-center bg-gradient-to-br ${gradient} relative`}
+              >
+                {/* Ícono grande */}
+                <span className="text-6xl opacity-30 text-white select-none absolute">
+                  {icon}
+                </span>
+                
+                {/* Enlace/Botón "Ver detalles" */}
+                <span className="absolute bottom-2 right-3 text-xs font-semibold text-white/90 p-1 rounded-lg">
+                  VER DETALLES →
+                </span>
+              </div>
+
+              {/* Área de Contenido Inferior */}
+              <div className="p-4 pt-3">
+                <h3 className="text-lg font-bold text-white mb-1">{d.nombre}</h3>
+                <p className="text-sm text-gray-400">
+                  Atletas inscritos: <span className="font-semibold text-white">{d.atletas}</span>
+                </p>
+
+                {/* Barra de Progreso */}
+                <div className="w-full h-1 mt-3 bg-gray-600 rounded-full">
+                  <div 
+                    className={`h-full rounded-full ${d.color}`} 
+                    style={{ width: `${porcentaje}%` }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
     </div>
   );
 }
+

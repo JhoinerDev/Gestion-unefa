@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image"
 
 export default function LoginPage() {
   const router = useRouter();
@@ -9,15 +10,13 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // 🔑 Usuario de prueba (sin backend)
   const USER = {
-    cedula: "12345678",
-    password: "30193700",
+    cedula: "30193700",
+    password: "jhoiner123",
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     if (cedula === USER.cedula && password === USER.password) {
       router.push("/dashboard");
     } else {
@@ -26,35 +25,37 @@ export default function LoginPage() {
   };
 
   return (
+    // 1. El contenedor principal tiene 'relative', lo que nos permite posicionar el footer
     <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-black relative overflow-hidden">
 
-      {/* Líneas decorativas animadas */}
+      {/* Líneas decorativas */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
-      {/* Contenedor principal */}
-      <div className="relative bg-white/10 backdrop-blur-xl shadow-2xl p-10 rounded-3xl w-[90%] max-w-md border border-white/20 animate-fadeIn">
+      {/* Contenedor principal (LA TARJETA) */}
+      <div className="relative bg-white/10 backdrop-blur-xl shadow-2xl p-10 rounded-3xl w-[90%] max-w-md border border-white/20 animate-fadeIn z-10">
 
         {/* Logo y título */}
         <div className="text-center mb-8">
-          <div className="text-white text-4xl font-black tracking-wide drop-shadow-lg">
-            UNEFA
-          </div>
-          <p className="text-slate-200 mt-2 text-sm tracking-wider">
+            {/* Nota: Asegúrate de que el nombre del archivo coincida con tu carpeta (logo.png vs logo-unefa.png) */}
+            <Image
+            src="/img/logo.png" 
+            alt="Logo UNEFA"
+            width={150}
+            height={150}
+            className="mx-auto mb-1"
+            />
+          <p className="text-slate-200 mt-2 text-xl tracking-wider">
             Sistema de Gestión Deportiva
           </p>
         </div>
 
         {/* Formulario */}
         <form onSubmit={handleLogin} className="space-y-6">
-
-          {/* Cédula */}
           <div>
-            <label className="text-slate-200 font-semibold text-sm">
-              Cédula
-            </label>
+            <label className="text-slate-200 font-semibold text-sm">Cédula</label>
             <input
               type="text"
               value={cedula}
@@ -64,11 +65,8 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Contraseña */}
           <div>
-            <label className="text-slate-200 font-semibold text-sm">
-              Contraseña
-            </label>
+            <label className="text-slate-200 font-semibold text-sm">Contraseña</label>
             <input
               type="password"
               value={password}
@@ -78,28 +76,41 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Error */}
           {error && (
             <div className="text-red-300 text-center text-sm font-semibold">
               {error}
             </div>
           )}
 
-          {/* Botón */}
           <button
             type="submit"
-            className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold tracking-wide shadow-lg hover:shadow-xl transition"
+            className="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold tracking-wide shadow-lg hover:shadow-xl transition"
           >
             Iniciar Sesión
+            
           </button>
+          
         </form>
+        <p className="text-center text-slate-300 text-sm mt-4">
+  ¿No tienes cuenta?{" "}
+  <a
+    href="/register"
+    className="text-blue-300 underline hover:text-blue-400 transition"
+  >
+    Registrarme
+  </a>
+</p>
 
-        {/* CopyRight */}
-        <div className="text-center mt-8 text-xs text-slate-300 border-t border-white/20 pt-4">
-          © 2024 — Sistema de Gestión Deportiva UNEFA<br />
-          Desarrollado por J.C.
-        </div>
+        
       </div>
+      
+
+      {/* 2. EL FOOTER: Ahora está fuera de la tarjeta, pero dentro del div principal */}
+      <div className="absolute bottom-4 w-full text-center text-xs text-slate-400 z-10">
+          © 2025 — Sistema de Gestión Deportiva UNEFA<br />
+          Desarrollado por J.C.
+      </div>
+
     </div>
   );
 }

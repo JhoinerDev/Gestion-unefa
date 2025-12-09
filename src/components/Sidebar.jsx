@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -15,15 +16,20 @@ export default function Sidebar() {
 
 
   return (
-    <aside className="w-64 bg-blue-900 text-white flex flex-col shadow-xl">
+    <aside className="w-64 bg-blue-900 text-white flex flex-col shadow-xl ">
 
       {/* Logo */}
-      <div className="p-6 text-2xl font-bold tracking-wide border-b border-blue-700">
-        UNEFA
-      </div>
+      <Image
+      src="/img/logo.png"
+      alt="Logo UNEFA"
+      width={200}
+      height={200}
+      className="mx-auto mb-6 mt-1"
+      />
+      
 
       {/* Navegación */}
-      <nav className="flex-1 p-4 space-y-3">
+      <nav className="flex-6 p-4 space-y-4">
         {menu.map((item, i) => (
           <button
             key={i}
