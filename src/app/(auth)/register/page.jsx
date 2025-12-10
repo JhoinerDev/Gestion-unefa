@@ -44,7 +44,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-500 via-indigo-500 to-black relative overflow-hidden">
+    <div className="h-screen w-full flex items-center justify-center bg-[#12447f] relative overflow-hidden">
 
       {/* Fondos decorativos */}
       <div className="absolute inset-0">
@@ -53,7 +53,7 @@ export default function RegisterPage() {
       </div>
 
       {/* TARJETA — compactada */}
-      <div className="relative bg-white/10 backdrop-blur-xl shadow-xl p-8 rounded-3xl w-[100%] max-w-md border border-white/20 z-10">
+      <div className="relative bg-red/10 backdrop-blur-xl shadow-xl p-8 rounded-3xl w-[100%] max-w-md border border-white/20 z-10">
 
         {/* LOGO */}
         <div className="text-center mb-0">

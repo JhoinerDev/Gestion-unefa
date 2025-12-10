@@ -4,14 +4,14 @@
 const getDisciplineStyle = (nombre) => {
     switch (nombre) {
         case "Fútbol Sala":
-            return { icon: '⚽', gradient: "from-blue-500" };
+            return { icon: '⚽', gradient: "from-blue-700 to-indigo-600" };
         case "Baloncesto":
-            return { icon: '🏀', gradient: "from-yellow-500" };
+            return { icon: '🏀', gradient: "from-yellow-600 to-orange-500" };
         case "Voleibol":
-            return { icon: '🏐', gradient: "from-red-500 " };
+            return { icon: '🏐', gradient: "from-red-600 to-pink-500" };
         
         default:
-            return { icon: '📍', gradient: "to-gray-500 " };
+            return { icon: '📍', gradient: "from-gray-700 to-gray-600" };
     }
 };
 
@@ -34,8 +34,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         
         {/* TARJETA 1: Total Atletas (Gradiente Azul/Índigo) */}
-        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden 
-                      bg-gradient-to-br from-indigo-600 to-blue-500 text-white bg-gray-800 transition-transform duration-700 hover:scale-[1.05]">
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-indigo-600 to-blue-500 text-white bg-gray-800 transition-transform duration-700 hover:scale-[1.05]">
             
             {/* Ícono de fondo sutil */}
             <div className="absolute top-0 right-4 opacity-40 text-[5rem] translate-x-4 translate-y-4">
@@ -48,7 +47,7 @@ export default function DashboardPage() {
         </div>
 
         {/* TARJETA 2: Profesores (Fondo Blanco/Claro) */}
-        <div className="relative p-6 rounded-2xl shadow-xl bg-grey-200 border border-gray-200 bg-gray-1100 transition-transform duration-700 hover:scale-[1.05]">
+        <div className="relative p-6 rounded-2xl shadow-xl bg-white border border-gray-100 bg-gray-800 transition-transform duration-700 hover:scale-[1.05]">
             
             {/* Ícono de fondo sutil */}
             <div className="absolute top-0 right-4 opacity-40 text-[5rem] translate-x-4 translate-y-4">
@@ -61,8 +60,7 @@ export default function DashboardPage() {
         </div>
 
         {/* TARJETA 3: Disciplinas (Gradiente Rojo/Rosa) */}
-        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-500 transition-transform duration-700 hover:scale-[1.05]
-                        from-red-450  text-white">
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05] bg-gradient-to-br from-red-500 to-pink-500 text-white">
 
             {/* Ícono de fondo sutil */}
             <div className="absolute top-0 right-0 opacity-50 text-[5rem] translate-x-4 translate-y-4">
@@ -75,15 +73,14 @@ export default function DashboardPage() {
         </div>
 
         {/* TARJETA 4: Eventos Activos (Gradiente Amarillo/Naranja) */}
-        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-400 transition-transform duration-700 hover:scale-[1.05]
-                       bg-gradient-to-br from-blue-300 to-blue-300 text-white">
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05] bg-gradient-to-br from-yellow-500 to-orange-500 text-white">
             
             {/* Ícono de fondo sutil */}
             <div className="absolute top-0 right-5 opacity-40 text-[5rem] translate-x-4 translate-y-4">
                 📅
             </div>
 
-            <p className="text-base font-semibold opacity-100">Eventos Activos</p>
+            <p className="text-base font-semibold opacity-80">Eventos Activos</p>
             <h2 className="text-5xl font-extrabold mt-1">4</h2>
             <p className="text-sm opacity-90 mt-2">Eventos en curso</p>
         </div>

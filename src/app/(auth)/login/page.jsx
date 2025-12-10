@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image"
 
-
 export default function LoginPage() {
   const router = useRouter();
 
@@ -19,6 +18,10 @@ export default function LoginPage() {
   const handleLogin = (e) => {
     e.preventDefault();
     if (cedula === USER.cedula && password === USER.password) {
+      // Set cookie for middleware to detect session
+      // secure: true in production (add if https used locally or deploy)
+      document.cookie = "auth_session=true; path=/; max-age=86400; SameSite=Lax";
+      
       router.push("/dashboard");
     } else {
       setError("Credenciales incorrectas. Intente nuevamente.");
@@ -27,24 +30,24 @@ export default function LoginPage() {
 
   return (
     // 1. El contenedor principal tiene 'relative', lo que nos permite posicionar el footer
-    <div className=" h-screen  flex items-center flex justify-center to-blue-500 bg-gradient-to-br from-blue-600 via-blue-800 to-blue-800">
+    <div className="h-screen w-full flex items-center justify-center bg-[#12447f] relative overflow-hidden">
 
       {/* Líneas decorativas */}
       <div className="absolute inset-0">
-        <div className="absolute bg-blue-300/20  animate-pulse"></div>
-        <div className="absolute bottom-10 bg-indigo-600/20  animate-pulse"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       {/* Contenedor principal (LA TARJETA) */}
-      <div className=" bg-grey-500 -grey-xl shadow-2xl p-10 rounded-3xl w-[90%] max-w-md border border-white/20 z-20">
+      <div className="relative bg-white/10 backdrop-blur-xl shadow-2xl p-10 rounded-3xl w-[90%] max-w-md border border-white/20 animate-fadeIn z-10">
 
         {/* Logo y título */}
-        <div className="text-center mb-2" >
+        <div className="text-center mb-8">
             {/* Nota: Asegúrate de que el nombre del archivo coincida con tu carpeta (logo.png vs logo-unefa.png) */}
             <Image
             src="/img/logo.png" 
             alt="Logo UNEFA"
-            width={100}
+            width={150}
             height={150}
             className="mx-auto mb-1"
             />
