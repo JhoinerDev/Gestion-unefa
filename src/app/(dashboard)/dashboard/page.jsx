@@ -34,8 +34,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         
         {/* TARJETA 1: Total Atletas (Gradiente Azul/Índigo) */}
-        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden 
-                      bg-gradient-to-br from-indigo-600 to-blue-500 text-white bg-gray-800 transition-transform duration-700 hover:scale-[1.05]">
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-indigo-600 to-blue-500 text-white bg-gray-800 transition-transform duration-700 hover:scale-[1.05]">
             
             {/* Ícono de fondo sutil */}
             <div className="absolute top-0 right-4 opacity-40 text-[5rem] translate-x-4 translate-y-4">
@@ -61,8 +60,7 @@ export default function DashboardPage() {
         </div>
 
         {/* TARJETA 3: Disciplinas (Gradiente Rojo/Rosa) */}
-        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05]
-                       bg-gradient-to-br from-red-500 to-pink-500 text-white">
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05] bg-gradient-to-br from-red-500 to-pink-500 text-white">
 
             {/* Ícono de fondo sutil */}
             <div className="absolute top-0 right-0 opacity-50 text-[5rem] translate-x-4 translate-y-4">
@@ -75,8 +73,7 @@ export default function DashboardPage() {
         </div>
 
         {/* TARJETA 4: Eventos Activos (Gradiente Amarillo/Naranja) */}
-        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05]
-                       bg-gradient-to-br from-yellow-500 to-orange-500 text-white">
+        <div className="relative p-6 rounded-2xl shadow-xl overflow-hidden bg-gray-800 transition-transform duration-700 hover:scale-[1.05] bg-gradient-to-br from-yellow-500 to-orange-500 text-white">
             
             {/* Ícono de fondo sutil */}
             <div className="absolute top-0 right-5 opacity-40 text-[5rem] translate-x-4 translate-y-4">
