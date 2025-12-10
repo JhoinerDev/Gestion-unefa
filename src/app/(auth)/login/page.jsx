@@ -18,6 +18,10 @@ export default function LoginPage() {
   const handleLogin = (e) => {
     e.preventDefault();
     if (cedula === USER.cedula && password === USER.password) {
+      // Set cookie for middleware to detect session
+      // secure: true in production (add if https used locally or deploy)
+      document.cookie = "auth_session=true; path=/; max-age=86400; SameSite=Lax";
+      
       router.push("/dashboard");
     } else {
       setError("Credenciales incorrectas. Intente nuevamente.");
@@ -26,7 +30,7 @@ export default function LoginPage() {
 
   return (
     // 1. El contenedor principal tiene 'relative', lo que nos permite posicionar el footer
-    <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-black relative overflow-hidden">
+    <div className="h-screen w-full flex items-center justify-center bg-[#12447f] relative overflow-hidden">
 
       {/* Líneas decorativas */}
       <div className="absolute inset-0">
