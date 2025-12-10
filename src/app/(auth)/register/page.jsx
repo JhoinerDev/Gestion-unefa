@@ -44,7 +44,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-black relative overflow-hidden">
+    <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-500 via-indigo-500 to-black relative overflow-hidden">
 
       {/* Fondos decorativos */}
       <div className="absolute inset-0">

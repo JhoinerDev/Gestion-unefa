@@ -16,7 +16,7 @@ export default function Sidebar() {
 
 
   return (
-    <aside className="w-64 bg-blue-900 text-white flex flex-col shadow-xl ">
+    <aside className="w-64 bg-blue-400 text-white flex flex-col shadow-xl ">
 
       {/* Logo */}
       <Image

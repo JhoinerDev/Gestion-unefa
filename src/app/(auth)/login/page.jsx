@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image"
 
+
 export default function LoginPage() {
   const router = useRouter();
 
@@ -26,24 +27,24 @@ export default function LoginPage() {
 
   return (
     // 1. El contenedor principal tiene 'relative', lo que nos permite posicionar el footer
-    <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-black relative overflow-hidden">
+    <div className=" h-screen  flex items-center flex justify-center to-blue-500 bg-gradient-to-br from-blue-600 via-blue-800 to-blue-800">
 
       {/* Líneas decorativas */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bg-blue-300/20  animate-pulse"></div>
+        <div className="absolute bottom-10 bg-indigo-600/20  animate-pulse"></div>
       </div>
 
       {/* Contenedor principal (LA TARJETA) */}
-      <div className="relative bg-white/10 backdrop-blur-xl shadow-2xl p-10 rounded-3xl w-[90%] max-w-md border border-white/20 animate-fadeIn z-10">
+      <div className=" bg-grey-500 -grey-xl shadow-2xl p-10 rounded-3xl w-[90%] max-w-md border border-white/20 z-20">
 
         {/* Logo y título */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-2" >
             {/* Nota: Asegúrate de que el nombre del archivo coincida con tu carpeta (logo.png vs logo-unefa.png) */}
             <Image
             src="/img/logo.png" 
             alt="Logo UNEFA"
-            width={150}
+            width={100}
             height={150}
             className="mx-auto mb-1"
             />
